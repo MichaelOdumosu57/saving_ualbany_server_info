@@ -1,0 +1,4 @@
+questions for project 
+what do you mean by each input expression is terminated by the newline character
+and 
+that There may be zero or more spaces between successive non-blank characters of an expression.

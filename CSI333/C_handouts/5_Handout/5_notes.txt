@@ -1,0 +1,5 @@
+refer to A.c simply refer to how to allocate memory
+
+using a pointer to a linked list and moving it through the linked list to print things reset the list back to the head once the list is used. that is when you use the head refer to C.c
+
+refer to C.c also for using a linked list

@@ -1,0 +1,11 @@
+#include <stdio.h>
+#include <string.h>
+
+int main (void) {
+
+  char greet[] = "Hello";
+  int acd = 1;
+  char test = 'c';
+  acd = strchr(greet[],test);
+  printf("%d",acd);
+}

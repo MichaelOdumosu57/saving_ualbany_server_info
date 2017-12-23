@@ -1,0 +1,3 @@
+char name[MAX_NAME_LEN]; int age; float salary
+
+"can put several declarations next to each other"

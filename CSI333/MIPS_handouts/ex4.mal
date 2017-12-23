@@ -1,0 +1,51 @@
+#Example 4.
+#Simple example to illustrate the use of stack in a nested procedure call.
+
+#Function: main
+              .data
+mstr:         .asciiz    "Finished\n"
+ 
+              .text
+              .globl     main
+
+main:         jal        hello        #Call function hello.
+              la         $a0, mstr    #To output string.
+              li         $v0, 4
+              syscall
+
+              li         $v0, 10      #To stop.
+              syscall
+ 
+#Function: hello
+              .data
+hstr:         .asciiz    "Hello World\n"
+ 
+              .text
+hello:        sw         $31, 0($sp)     #Push $31 on stack.
+              addi       $sp, $sp, -4
+ 
+              la         $a0, hstr       #To print string.
+              li         $v0, 4
+              syscall
+
+              jal        pzero           #Call function pzero.
+
+              lw         $31, 4($sp)     #Restore $31 and pop stack.
+              addi       $sp, $sp, 4
+              jr         $31             #Return to main.
+ 
+#Function: pzero
+
+              .data
+newline:      .asciiz    "\n"
+
+              .text
+pzero:        li         $v0, 1          #To print integer 0.
+              move       $a0, $0
+              syscall
+
+              la         $a0, newline    #To print newline.
+              li         $v0, 4          
+              syscall
+
+              jr         $31             #Return to hello. 

@@ -1,0 +1,1 @@
+use FILE *[fakefile] to use a file

@@ -1,0 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int (main) void {
+	printf("please do not dump the core \n");
+	return 0;
+}

@@ -1,0 +1,69 @@
+#Example 6.
+#Finding the maximum value in an integer array of size 10.
+
+            .data
+ 
+arr:        .word     0:10        #Space for the array.
+outstr:     .asciiz   "The maximum value is "
+newline:    .asciiz   "\n"
+ 
+#Notes:
+#  $5 --  Contains the max. value at the end.
+#  $6 --  Loop index.
+#  $7 --  Used to compute the addresses of successive array elements.
+#  $9 --  Used to obtain the values of successive array elements.
+#  $8 --  Contains the size of the array (10).
+ 
+            .text
+            .globl  main
+
+# We initialize the array to the values 5, 10, ..., 50. Registers
+# $5, $6, $7 and $8 are used for this purpose.
+
+main:       la      $7, arr    #Base addr. of array in $7.
+            li      $5, 5      #$5 contains the value to be stored.
+            li      $8, 10     #Size of array.
+            move    $6, $0     #When $6 has the value 10, we stop.
+
+iloop:      bge     $6, $8, getmax   #After initializing, find the max.
+            sw      $5, 0($7)        #Store value in array element.
+            addi    $5, $5, 5        
+            addi    $7, $7, 4        #$7 has the addr. of the next array element.
+            addi    $6, $6, 1        #Increment loop index.
+            j       iloop
+ 
+#As in the initializaion phase:
+#Initialize $7 to the base address of the array.
+#Initialize $5 to the value of the array element with index 0.
+#Initialize $8 to the size of the array.
+
+getmax:     la      $7, arr
+            lw      $5, 0($7)
+            li      $8, 10 
+            move    $6, $0   #Initialize loop index to zero.
+ 
+loop:       addi    $7, $7, 4      #The addr. of the next element.
+            addi    $6, $6, 1
+            beq     $6, $8, print  #When $6 = $8, we have the correct max.
+
+#Compare max with the value of the next array element.
+            lw      $9, 0($7)
+            bge     $5, $9, loop
+            move    $5, $9           #Update the max value.
+            b       loop
+
+#Print out the max value.
+print:      la      $a0, outstr    #Output string.
+            li      $v0, 4
+            syscall
+
+            move    $a0, $5   #Value to be printed must be in $a0
+            li      $v0, 1    #Command: print_int
+            syscall
+
+            la      $a0, newline    #Output "\n".
+            li      $v0, 4
+            syscall
+
+            li      $v0, 10         #exit command.
+            syscall

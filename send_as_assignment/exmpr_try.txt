@@ -1,0 +1,6 @@
+store-and-forward$L = Mbis R = Mbps L/R, how many secconds
+Packet$Allow more users to network,Gr8 for bursty data ,Resource sharing ,No call setup
+queue$if buffer fils up packets can be lost
+non-persistent HTTP issues $2 RTT's per object, OS overhead for each TCP, open parallel TCP to get objects
+Circuit$Dedicated resources no sharing,Guaranteed performance,Idle if not used by call
+dnodal$dproc + dqueue + dtrans + dprop 

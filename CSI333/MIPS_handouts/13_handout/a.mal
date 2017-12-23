@@ -1,0 +1,8 @@
+            move        $16, $0                 #Set j = 0.
+            addi        $15, $0, 1              #Set i = 1.
+loop:       bgt         $15, $17, end_loop      #If i > n, loop is over.
+            mul         $18, $15, 2             #Set temp = 2 * i.
+            add         $16, $16, $18           #Set j += temp.
+            addi        $15, $15, 1             #i++
+            jal         loop
+end_loop:

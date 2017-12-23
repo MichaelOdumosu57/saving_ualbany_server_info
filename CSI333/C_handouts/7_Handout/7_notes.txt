@@ -1,0 +1,9 @@
+use FILE *[fakefile] to use a file
+
+if you want to find if a line a a file matches with the selection
+
+while (fgets(line, MAXLEN, finp) != NULL) {
+    if (strstr(line, argv[PATTERN_ARG]) != NULL) {
+      fputs(line, foutp);
+    }
+  }

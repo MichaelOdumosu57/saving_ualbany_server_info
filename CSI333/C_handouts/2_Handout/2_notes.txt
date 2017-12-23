@@ -1,0 +1,5 @@
+use scanf("%d",&[variable]); to make [ENTER]  the escape sequence
+
+struct card aCard = { "Three", "Hearts" }; 
+
+"the way to initialize structs"

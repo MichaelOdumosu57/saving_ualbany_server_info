@@ -1,0 +1,8 @@
+you can say a = b = c = d =0; if  it makes life easier for you
+
+refer to A.c in handout 3 if you are trying to setup up a tally table
+
+use srand(VALUE) to initialize the random value generator then use 'face = 1 + rand() % NUM_FACES;' to get a random value
+
+to temporoaily change the type of a value use ([type])[variable];
+
